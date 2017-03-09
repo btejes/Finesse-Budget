@@ -1,0 +1,28 @@
+<ion-view view-title="Add Transaction">
+
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Amount</span>
+        <input type="number" placeholder="Amount" ng-model="amount">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Merchant</span>
+        <input type="text" placeholder="Merchant" ng-model="merchant">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Category</span>
+        <input type="text" placeholder="Category" ng-model="category">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Date</span>
+        <input type="date" placeholder="Date" ng-model="date">
+      </label>
+
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="addtransaction(amount,merchant,category,date)">Add Transaction</button>
+    </div>
+  </ion-content>
+</ion-view>

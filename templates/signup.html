@@ -1,0 +1,24 @@
+<ion-view name="signup-view">
+  <ion-content>
+    <div class="list">
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Email</span>
+        <input type="email" placeholder="Email" ng-model="email">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Password</span>
+        <input type="password" placeholder="Password" ng-model="password">
+      </label>
+      <label class="item item-input item-floating-label">
+        <span class="input-label">Repeat Password</span>
+        <input type="password" placeholder="Repeat password" ng-model="repeat_password">
+      </label>
+    </div>
+    <div class="padding">
+      <button class="button button-block button-calm" ng-click="signup(email, password, repeat_password)">Signup</button>
+    </div>
+    <div class="text-center help-text">
+      Already have an account? <span class="link" ng-click="goLogin()">Login</span>.
+    </div>
+  </ion-content>
+</ion-view>

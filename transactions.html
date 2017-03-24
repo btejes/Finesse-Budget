@@ -1,0 +1,26 @@
+<ion-view view-title="Transactions">
+
+  <ion-content>
+    <div class="card">
+      <div class="item item-text-wrap upstart row">
+        <div class="col col-25 text-center">Date</div>
+        <div class="col">Transaction</div>
+        <div class="col col-25 text-center">Amount</div>
+        <div class="col col-25 text-center">Category</div>
+      </div>
+      <div class="item item-text-wrap row" ng-repeat="x in appData.transactions">
+        <div class="col col-25 text-center"> {{x.date | date:'MM/dd/yyyy'}} </div>
+        <div class="col"> {{x.merchant}} </div>
+        <div class="col col-30 text-right"> {{x.amount}} </div>
+        <div class="col col-30 text-right"> {{x.category}} </div>
+
+      </div>
+
+      <div class="item item-text-wrap row {{transactionColor(transaction)}}" ng-repeat="transaction in month.transactions" on-hold="ignoreTransaction(transaction)">
+        <div class="col col-25 text-center">{{transaction.date_str}}</div>
+        <div class="col">{{transaction.description}} <i ng-if="transaction.pending" class="icon ion-android-time assertive-text"></i></div>
+        <div class="col col-30 text-right">{{transaction.amount.formatMoney()}}</div>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

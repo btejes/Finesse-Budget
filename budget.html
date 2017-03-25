@@ -41,75 +41,12 @@
         <div class="col col-25 text-center"><h4>Remaining</h4></div>
       </div>
 
-      <div class="item item-text-wrap row">
+      <div class="item item-text-wrap row" ng-repeat="x in categories.categoryData">
 
-        <div class="col col-25 text-center"> <button ng-click="goCategory()">Fixed Expenses</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Daily Living</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Eating Out</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Health</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Recreation</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Insurance/Services</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Travel/Gas</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Charity</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Savings</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Other</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
+        <div class="col col-25 text-center"> <a href="/#/app/category/{{x.id}}">{{x.category}}</a></div>
+        <div class="col col-25 text-center">{{x.budget}}</div>
+        <div class="col col-25 text-center">{{x.actual}}</div>
+        <div class="col col-25 text-center">{{x.remaining}}</div>
       </div>
 
     </div>

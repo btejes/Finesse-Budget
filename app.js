@@ -42,15 +42,15 @@ angular.module('starter', ['ionic', 'starter.controllers','starter.services','fi
     }
   })
 
-    .state('app.category', {
-      url: '/category', // Change that so we can have #/app/budget/category
+  .state('app.category', {
+      url: '/category/:categoriesId', // Change that so we can have #/app/budget/category
       views: {
         'menuContent': {
           templateUrl: 'templates/category.html',
-          controller: 'BudgetCtrl'
+          controller: 'CategoriesCtrl'
         }
       }
-    })
+  })
 
 
   .state('app.accounts', {

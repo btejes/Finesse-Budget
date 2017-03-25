@@ -17,6 +17,20 @@ angular.module('starter.controllers', [])
     ]
   };
 
+  $scope.categories = {
+    categoryData: [
+      { category: 'Fixed Expenses', budget: '$300', actual: '$200', remaining: '$100', id: 1 },
+      { category: 'Daily Living', budget: '$400', actual: '$200', remaining: '$200', id: 2 },
+      { category: 'Health', budget: '$300', actual: '$200', remaining: '$100', id: 3 },
+      { category: 'Recreation', budget: '$300', actual: '$200', remaining: '$100', id: 4 },
+      { category: 'Insurance/Services', budget: '$300', actual: '$200', remaining: '$100', id: 5 },
+      { category: 'Travel/Gas', budget: '$300', actual: '$200', remaining: '$100', id: 6 },
+      { category: 'Charity', budget: '$300', actual: '$200', remaining: '$100', id: 7 },
+      { category: 'Savings', budget: '$300', actual: '$200', remaining: '$100', id: 8 },
+      { category: 'Other', budget: '$300', actual: '$200', remaining: '$100', id: 9 }
+
+    ]};
+
 // Form data for the login modal
   $scope.loginData = {};
 
@@ -60,15 +74,27 @@ angular.module('starter.controllers', [])
 .controller('BudgetCtrl', function($scope,$state) {
 
   $scope.goCategory = function () {
-    $state.go('app.category')
+    $state.go('app.category');
+    // $location.url('http://10.0.88.28:8100/#/app/category/'+ $scope.categories.id) - didn't work
+
 
   };
+
+
 })
 
-//End of Budget Control
+//End of Budget Controller
 
-.controller('FixedCtrl', function($scope, $stateParams) {
+
+// Start of Category Controller
+
+.controller('CategoriesCtrl', function($scope, $stateParams) {
+  // scope.categoriesID = $routeParams.categoriesId - Still need to know how to inject $routeParams into Function (ask Ryan)
+
+
 })
+
+//End of Category Controller
 
 
 // Start of Transaction Controller

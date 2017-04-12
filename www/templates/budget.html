@@ -2,6 +2,16 @@
 
   <ion-content class="has-header" has-bouncing="false">
 
+    <ion-nav-buttons side="left">
+      <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+      </button>
+    </ion-nav-buttons>
+
+    <ion-nav-buttons side="right">
+      <a href="#/app/transactions-add"><button class="button button-icon button-clear ion-android-add">
+      </button></a>
+    </ion-nav-buttons>
+
     <div class="button-bar">
       <div class="col">
         <div class="card positive text-center">
@@ -25,80 +35,19 @@
 
     <div class="card">
       <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><h4>Category</h4></div>
+        <div class="col col-25 text-left"><h4>Category</h4></div>
         <div class="col col-25 text-center"><h4>Budget</h4></div>
         <div class="col col-25 text-center"><h4>Actual</h4></div>
         <div class="col col-25 text-center"><h4>Remaining</h4></div>
       </div>
 
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button> Fixed Expenses</button></div>
-        <div class="col col-25 text-center"><button><$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
 
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Daily Living</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
+      <div class="item item-text-wrap row"  ng-repeat="x in categoryVariable">
 
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Eating Out</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Health</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Recreation</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Insurance/Services</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Travel/Gas</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Charity</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Savings</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
-      </div>
-
-      <div class="item item-text-wrap row">
-        <div class="col col-25 text-center"><button>Other</button></div>
-        <div class="col col-25 text-center"><button>$800</button></div>
-        <div class="col col-25 text-center">$300</div>
-        <div class="col col-25 text-center">$500</div>
+        <div class="col col-25 text-center"><a href="/#/app/category/{{x.id}}">{{x.category}}</a></div>
+        <div class="col col-25 text-center">{{x.budget | currency}}</div>      <!-- ng-click="goToCategory(x.id)"-->
+        <div class="col col-25 text-center">{{x.actual | currency}}</div>
+        <div class="col col-25 text-center">{{(x.budget - x.actual) | currency}}</div> <!--Currently looks at this as two strings-->
       </div>
 
     </div>

@@ -1,0 +1,26 @@
+[
+  {
+    "date": "3/18/2017",
+    "merchant": "Costco",
+    "amount" : "$300",
+    "category_id"	:  "1",
+    "category": "Fixed Expenses",
+    "id": 1
+  },
+  {
+    "date": "3/16/2017",
+    "merchant": "Walmart",
+    "amount" : "$200",
+    "category_id"	:  "1",
+    "category": "Fixed Expenses",
+    "id": 2
+  },
+  {
+    "date": "3/16/2017",
+    "merchant": "Macy's",
+    "amount" : "$123",
+    "category_id"	:  "2",
+    "category": "Daily Living",
+    "id": 3
+  }
+]

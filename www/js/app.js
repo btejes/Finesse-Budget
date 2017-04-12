@@ -1,10 +1,5 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers'])
+angular.module('starter', ['ionic', 'ngRoute']) //, Add 'starter.services'??
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -42,6 +37,17 @@ angular.module('starter', ['ionic', 'starter.controllers'])
     }
   })
 
+  .state('app.category', {
+      url: '/category/:categoryId',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/category.html',
+          controller: 'CategoriesCtrl'
+        }
+      }
+  })
+
+
   .state('app.accounts', {
     url: '/accounts',
     views: {
@@ -53,30 +59,13 @@ angular.module('starter', ['ionic', 'starter.controllers'])
 
   })
 
-  .state('app.transactions', {
-     url: '/transactions',
-     views: {
+    .state('app.transactions', {
+      url: '/transactions',
+      views: {
        'menuContent': {
           templateUrl: 'templates/transactions.html',
-          controller: 'TransactionsCtrl'
-       }
-     }
-  })
+         controller: 'TransactionsCtrl'
 
-    .state('app.login2', {
-      url: '/login2',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/login2.html'
-        }
-      }
-    })
-
-    .state('app.signup', {
-      url: '/signup',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/signup.html'
         }
       }
     })
@@ -85,16 +74,38 @@ angular.module('starter', ['ionic', 'starter.controllers'])
       url: '/transactions-add',
       views: {
         'menuContent': {
-          templateUrl: 'templates/transactions-add.html'
+          templateUrl: 'templates/transactions-add.html',
+          controller: 'TransactionsCtrl'
         }
       }
     })
 
-    .state('app.category-add', {
-      url: '/category-add',
+    .state('app.login2', {
+      url: '/login2',
       views: {
         'menuContent': {
-          templateUrl: 'templates/category-add.html'
+          templateUrl: 'templates/login2.html',
+          Controller: 'LoginCtrl'
+        }
+      }
+    })
+
+    .state('app.signup', {
+      url: '/signup',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/signup.html',
+          controller: 'SignupCtrl'
+        }
+      }
+    })
+
+
+    .state('app.budget-edit', {
+      url: '/budget-edit',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/budget-edit.html'
         }
       }
     })

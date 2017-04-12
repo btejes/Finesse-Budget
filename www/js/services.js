@@ -1,50 +1,61 @@
-angular.module('starter.services', [])
+angular.module('starter.services', ['firebase'])
 
-.factory('Chats', function() {
-  // Might use a resource here that returns a JSON array
+.factory('toAddTransactionService', function($firebaseArray) {
+  var ref = new Firebase('https://myapp2-74981.firebaseio.com/');
 
-  // Some fake testing data
-  var chats = [{
-    id: 0,
-    name: 'Ben Tejes',
-    lastText: 'You on your way?',
-    face: 'img/ben.png'
-  }, {
-    id: 1,
-    name: 'Max Lynx',
-    lastText: 'Hey, it\'s me',
-    face: 'img/max.png'
-  }, {
-    id: 2,
-    name: 'Adam Bradleyson',
-    lastText: 'I should buy a boat',
-    face: 'img/adam.jpg'
-  }, {
-    id: 3,
-    name: 'Perry Governor',
-    lastText: 'Look at my mukluks!',
-    face: 'img/perry.png'
-  }, {
-    id: 4,
-    name: 'Mike Harrington',
-    lastText: 'This is wicked good ice cream.',
-    face: 'img/mike.png'
-  }];
+  var toAdd = $firebaseArray(ref);
 
-  return {
-    all: function() {
-      return chats;
-    },
-    remove: function(chat) {
-      chats.splice(chats.indexOf(chat), 1);
-    },
-    get: function(chatId) {
-      for (var i = 0; i < chats.length; i++) {
-        if (chats[i].id === parseInt(chatId)) {
-          return chats[i];
-        }
+  var toAddTransactionService = {
+      all: toAdd,
+      get: function(toAddID){
+        return toAdd.$getRecord(toAddID);
       }
-      return null;
+  }
+
+  return toAddTransactionService;
+
+});
+
+
+angular.module('starter').factory('transactions', ['$http', '$q', '$filter', function($http, $q, $filter) {
+
+  var transactionsPromise = $q.defer();
+
+  var service = {
+    getTransactions: function() {
+      return $http.get('js/transactions.json');
+    },
+    getTransactionsByCategory: function(categoryId) {
+      var deferred = $q.defer();
+
+      this.getTransactions().success(function(data) {
+        var updatedData = $filter('filter')(data,{category_id:categoryId});
+        deferred.resolve(updatedData);
+      });
+
+      return deferred.promise;
+    },
+    addTransaction: function(item) {
+      this.getTransactions().success(function(data) {
+        data.push(item);
+        transactionsPromise.resolve(data);
+      });
+      return transactionsPromise.promise;
     }
   };
-});
+
+  return service;
+
+}]);
+
+angular.module('starter').factory('categories', ['$http', function($http) {
+
+  var service = {
+    getCategories: function() {
+      return $http.get('js/categories.json');
+    }
+  };
+
+  return service;
+
+}]);

@@ -1,0 +1,56 @@
+[
+  {
+    "category": "Fixed Expenses",
+    "budget": 450,
+    "actual": 200,
+    "id": 1
+  },
+  {
+    "category": "Daily Living",
+    "budget": 200,
+    "actual": 200,
+    "id": 2
+  },
+  {
+    "category": "Health",
+    "budget": 300,
+    "actual" : 200,
+    "id": 3
+  },
+  {
+    "category": "Recreation",
+    "budget": 400,
+    "actual" : 200,
+    "id": 4
+  },
+  {
+    "category": "Insurance/Services",
+    "budget": 500,
+    "actual" : 200,
+    "id": 5
+  },
+  {
+    "category": "Travel/Gas",
+    "budget": 600,
+    "actual" : 200,
+    "id": 6
+  },
+  {
+    "category": "Charity",
+    "budget": 700,
+    "actual": 200,
+    "id": 7
+  },
+  {
+    "category": "Savings",
+    "budget": 800,
+    "actual" : 900,
+    "id": 8
+  },
+  {
+    "category": "Other",
+    "budget": 900,
+    "actual": 200,
+    "id": 9
+  }
+]

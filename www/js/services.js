@@ -1,22 +1,3 @@
-angular.module('starter.services', ['firebase'])
-
-.factory('toAddTransactionService', function($firebaseArray) {
-  var ref = new Firebase('https://myapp2-74981.firebaseio.com/');
-
-  var toAdd = $firebaseArray(ref);
-
-  var toAddTransactionService = {
-      all: toAdd,
-      get: function(toAddID){
-        return toAdd.$getRecord(toAddID);
-      }
-  }
-
-  return toAddTransactionService;
-
-});
-
-
 angular.module('starter').factory('transactions', ['$http', '$q', '$filter', function($http, $q, $filter) {
 
   var transactionsPromise = $q.defer();

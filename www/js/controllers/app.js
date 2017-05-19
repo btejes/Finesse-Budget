@@ -37,6 +37,15 @@ angular.module('starter', ['ionic', 'ngRoute']) //, Add 'starter.services'??
     }
   })
 
+  .state('app.budget-edit', {
+      url: '/budget-edit',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/budget-edit.html'
+        }
+      }
+  })
+
   .state('app.category', {
       url: '/category/:categoryId',
       views: {
@@ -96,16 +105,6 @@ angular.module('starter', ['ionic', 'ngRoute']) //, Add 'starter.services'??
         'menuContent': {
           templateUrl: 'templates/signup.html',
           controller: 'SignupCtrl'
-        }
-      }
-    })
-
-
-    .state('app.budget-edit', {
-      url: '/budget-edit',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/budget-edit.html'
         }
       }
     })
